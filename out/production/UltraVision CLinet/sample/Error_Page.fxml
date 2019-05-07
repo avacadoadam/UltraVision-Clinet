@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ErrorPage">
+
+    <Label layoutX="85.0" layoutY="99.0" prefHeight="140.0" prefWidth="430.0" text="Can't connect to Server">
+      <font>
+         <Font size="30.0" />
+      </font></Label>
+   <Button layoutX="242.0" layoutY="266.0" mnemonicParsing="false" text="Retry" />
+
+</AnchorPane>

@@ -1,7 +1,8 @@
-package sample;
+package CreateCustomer;
 
 import ServerConnect.RequestCallback;
 import ServerConnect.ServerRequest;
+import Start.Main;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +22,7 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class GetCustomerDetails implements RequestCallback{
+public class GetCustomerDetails implements RequestCallback {
 
     @FXML
     public DatePicker DOB;
@@ -34,14 +35,12 @@ public class GetCustomerDetails implements RequestCallback{
     public TextField lname;
     @FXML
     public TextField address;
-
     @FXML
     public ChoiceBox accesstype;
     @FXML
     public ChoiceBox cardtype;
     @FXML
     public Label error_message;
-
 
     public void createcustomer(MouseEvent mouseEvent) {
         JSONObject obj = new JSONObject();
@@ -57,18 +56,16 @@ public class GetCustomerDetails implements RequestCallback{
         ServerRequest.createServerRequest(this, obj.toString());
     }
 
-
     @Override
     public void response(JSONObject obj) {
         Platform.runLater(() -> {
             if (obj.getBoolean("success")) {
-                Main.makeText(Main.pStage, "success id= "+obj.getInt("customerID"), 3500, 500, 500);
+                Main.makeText(Main.pStage, "success id= " + obj.getInt("customerID"), 3500, 500, 500);
             } else {
                 Main.makeText(Main.pStage, obj.getString("error"), 3500, 500, 500);
                 error_message.setText("server response " + obj.getString("error"));
             }
         });
-
     }
 
     @Override
@@ -77,8 +74,8 @@ public class GetCustomerDetails implements RequestCallback{
             @Override
             public void run() {
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("get_customer_details.fxml"));
-                    Parent root1 = (Parent) fxmlLoader.load();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("getCustomerDetails.fxml"));
+                    Parent root1 = fxmlLoader.load();
                     Stage stage = new Stage();
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.initStyle(StageStyle.UNDECORATED);
@@ -90,5 +87,21 @@ public class GetCustomerDetails implements RequestCallback{
                 }
             }
         });
+    }
+
+
+    public void back(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/MainMenu/MainMenuScence.fxml"));
+            Parent root1 = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("customer details");
+            stage.setScene(new Scene(root1));
+            stage.setFullScreen(true);
+            Main.pStage.setScene(stage.getScene());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

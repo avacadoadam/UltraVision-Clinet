@@ -1,4 +1,4 @@
-package sample;
+package Start;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -22,16 +22,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         pStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("choose_option.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../MainMenu/MainMenuScence.fxml"));
         primaryStage.setTitle("choose Option");
         Scene scene = new Scene(root,primaryStage.getWidth(),primaryStage.getHeight());
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-
     public static void main(String[] args) {
-
         launch(args);
     }
 

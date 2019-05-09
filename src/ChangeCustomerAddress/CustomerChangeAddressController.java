@@ -1,4 +1,4 @@
-package ReturnRental;
+package ChangeCustomerAddress;
 
 import ServerConnect.RequestCallback;
 import ServerConnect.ServerRequest;
@@ -15,15 +15,16 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
-public class ReturnRentalController implements RequestCallback {
+public class CustomerChangeAddressController implements RequestCallback {
 
-    @FXML
-    public TextField productID;
 
-    public void returnRental(MouseEvent mouseEvent) {
+    @FXML public TextField address;
+    @FXML public TextField customerID;
+
+    public void changeAddress(MouseEvent mouseEvent) {
         try {
-            ServerRequest.createServerRequest(this, new JSONObject().put("command", "returnrental")
-                    .put("productID", Integer.parseInt(productID.getText())).toString());
+            ServerRequest.createServerRequest(this, new JSONObject().put("command", "changeuseraddress")
+                    .put("customerID", Integer.parseInt(customerID.getText())).put("address",address.getText()).toString());
         } catch (Exception e) {
             e.printStackTrace();
             Main.makeText(Main.pStage, "product ID must be filled and be a int", 3500, 500, 500);
@@ -48,7 +49,6 @@ public class ReturnRentalController implements RequestCallback {
             Main.makeText(Main.pStage, "Could not connect to server", 2500, 500, 500);
         });
     }
-
 
     public void back(MouseEvent mouseEvent) {
         try {

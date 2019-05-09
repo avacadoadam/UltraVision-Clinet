@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChangeCustomerCard.ChangeCustomerCard">
+   <children>
+      <TextField layoutX="207.0" layoutY="225.0" promptText="Card Number" fx:id="cardNum"/>
+       <Label layoutX="77.0" layoutY="148.0" prefHeight="31.0" prefWidth="126.0" text="Card Type" />
+       <ChoiceBox fx:id="cardtype" layoutX="292.0" layoutY="148.0" prefWidth="150.0" >
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="credit" />
+                   <String fx:value="debit" />
+                   <String fx:value="vise" />
+               </FXCollections>
+           </items></ChoiceBox>
+      <Label layoutX="77.0" layoutY="232.0" text="Card Number" />
+      <Label layoutX="203.0" layoutY="14.0" prefHeight="31.0" prefWidth="126.0" text="Change Card " />
+      <Button layoutX="14.0" layoutY="325.0" mnemonicParsing="false" text="back" onMouseClicked="#back"/>
+      <TextField layoutX="198.0" layoutY="71.0" promptText="CustomerID" fx:id="customerID"/>
+      <Label layoutX="50.0" layoutY="78.0" prefHeight="31.0" prefWidth="126.0" text="customerID" />
+      <Button layoutX="247.0" layoutY="319.0" mnemonicParsing="false" text="change" onMouseClicked="#change"/>
+   </children>
+</AnchorPane>

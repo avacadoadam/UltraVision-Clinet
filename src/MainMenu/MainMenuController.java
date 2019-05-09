@@ -69,4 +69,47 @@ public class MainMenuController {
         }
 
     }
+
+    public void ChangeAddress(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ChangeCustomerAddress/CustomerChangeAddress.fxml"));
+            Parent root1 = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Change customer address");
+            stage.setScene(new Scene(root1));
+            stage.setFullScreen(true);
+            Main.pStage.setScene(stage.getScene());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void changeCustomerCard(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ChangeCustomerCard/ChangeCustomerCard.fxml"));
+            Parent root1 = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Change customer address");
+            stage.setScene(new Scene(root1));
+            stage.setFullScreen(true);
+            Main.pStage.setScene(stage.getScene());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ChangeAccessPlan(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ChangeCustomerAccessPlan/ChangeCustomerAccessPlan.fxml"));
+            Parent root1 = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Change customer address");
+            stage.setScene(new Scene(root1));
+            stage.setFullScreen(true);
+            Main.pStage.setScene(stage.getScene());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

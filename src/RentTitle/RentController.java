@@ -34,6 +34,10 @@ public class RentController implements RequestCallback {
     public void rent(MouseEvent mouseEvent) {
         //test for
         String selectedOption = (String) rentalType.getValue();
+        if(selectedOption == null){
+            Main.makeText(Main.pStage, "must add rental type", 3500, 500, 500);
+            return;
+        }
         String command = "rentOutWithAccessPlan";
         if (selectedOption.equals("Loyalty Points")) {
             command = "rentwithloyaltypoints";
@@ -72,7 +76,9 @@ public class RentController implements RequestCallback {
 
     @Override
     public void fail() {
-        Main.makeText(Main.pStage, "unSuccess", 3500, 500, 500);
+        Platform.runLater(() -> {
+            Main.makeText(Main.pStage, "unSuccess", 3500, 500, 500);
+        });
     }
 
     public void back(MouseEvent mouseEvent) {

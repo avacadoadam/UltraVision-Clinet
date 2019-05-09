@@ -53,7 +53,9 @@ public class CreateTitleController implements RequestCallback {
 
     @Override
     public void fail() {
-        Main.makeText(Main.pStage, "Could not connect to server", 2500, 500, 500);
+        Platform.runLater(() -> {
+            Main.makeText(Main.pStage, "Could not connect to server", 2500, 500, 500);
+        });
     }
 
     public void back(MouseEvent mouseEvent) {

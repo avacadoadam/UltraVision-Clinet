@@ -14,7 +14,7 @@ public class ServerRequest implements Runnable{
     private RequestCallback callback;
     private String requestJSON;
 
-    public ServerRequest(RequestCallback callback, String requestJSON) {
+    private ServerRequest(RequestCallback callback, String requestJSON) {
         this.callback = callback;
         this.requestJSON = requestJSON;
         Thread thread = new Thread(this);
